@@ -1,0 +1,47 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    //Android libraries
+    appCompat_version = '28.0.0-alpha1'
+    constraintLayout_version = '1.1.3'
+    archComponents_version = '1.1.1'
+    glide_version = '4.0.0'
+
+    //Third party libraries
+    kotlin_coroutines_version = '1.0.0'
+    dagger_version = '2.11'
+    javaxAnnotations_version = '1.0'
+    javaxInject_version = '1'
+    retrofit_version = '2.3.0'
+    okhttp_logging_interceptor_version = '3.8.1'
+
+    mainApplication = [
+            kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            kotlinCoroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version",
+            kotlinCoroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version",
+            appCompat               : "com.android.support:appcompat-v7:$appCompat_version",
+            cardView                : "com.android.support:cardview-v7:$appCompat_version",
+            recyclerView            : "com.android.support:recyclerview-v7:$appCompat_version",
+            design                  : "com.android.support:design:$appCompat_version",
+            constraintLayout        : "com.android.support.constraint:constraint-layout:$constraintLayout_version",
+            androidAnnotations      : "com.android.support:support-annotations:$appCompat_version",
+            archComponents          : "android.arch.lifecycle:extensions:$archComponents_version",
+            archComponentsCompiler  : "android.arch.lifecycle:compiler:$archComponents_version",
+            glide                   : "com.github.bumptech.glide:glide:$glide_version",
+            daggerCompiler          : "com.google.dagger:dagger-compiler:$dagger_version",
+            dagger                  : "com.google.dagger:dagger:$dagger_version",
+            javaxAnnotation         : "javax.annotation:jsr250-api:$javaxAnnotations_version",
+            javaxInject             : "javax.inject:javax.inject:$javaxInject_version",
+            retrofit                : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_version",
+    ]
+
+    development = [
+
+    ]
+}
