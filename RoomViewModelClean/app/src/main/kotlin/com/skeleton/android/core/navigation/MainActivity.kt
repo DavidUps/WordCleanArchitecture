@@ -7,12 +7,12 @@ import com.skeleton.android.R
 import com.skeleton.android.core.functional.DialogCallback
 import com.skeleton.android.core.platform.BaseActivity
 import com.skeleton.android.core.platform.BaseFragment
-import com.skeleton.android.features.events.EventsFragment
+import com.skeleton.android.features.word.WordFragment
 
 
 class MainActivity : BaseActivity(), PopUpDelegator {
 
-    override fun fragment() = EventsFragment()
+    override fun fragment() = WordFragment()
 
     companion object {
         fun callingIntent(context: Context): Intent {
@@ -25,7 +25,7 @@ class MainActivity : BaseActivity(), PopUpDelegator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_layout)
-        addFragment(savedInstanceState, "EventsFragment")
+        addFragment(savedInstanceState, "wordFragment")
     }
 
     override fun showErrorWithRetry(title: String, message: String, positiveText: String, negativeText: String,
@@ -35,13 +35,11 @@ class MainActivity : BaseActivity(), PopUpDelegator {
         // del boton pulsado llamar a callback.onAccept() o callback.onDecline() que lo que hace es
         // delegar al fragment
 
-
-
     }
 
     override fun onBackPressed() {
         val container = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
-        if (container!!.tag.equals("EventsFragment")) {
+        if (container!!.tag.equals("wordFragment")) {
             moveTaskToBack(true)
         } else {
             ((container) as BaseFragment).onBackPressed()

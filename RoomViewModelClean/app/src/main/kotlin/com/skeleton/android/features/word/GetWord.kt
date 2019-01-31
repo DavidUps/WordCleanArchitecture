@@ -1,9 +1,6 @@
 package com.skeleton.android.features.word
 
-import com.skeleton.android.core.exception.Failure
-import com.skeleton.android.core.functional.Either
 import com.skeleton.android.core.interactor.UseCase
-import com.skeleton.android.features.events.GetEvents
 import javax.inject.Inject
 
 class GetWord

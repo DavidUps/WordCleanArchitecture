@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6103787ccbcbf11759b8e36418c5d3ee",
+    "identityHash": "66c7a7d3400f46b0982ea022d753a053",
     "entities": [
       {
-        "tableName": "EventEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `Place` TEXT, `Consumables` TEXT NOT NULL, `Images` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "tableName": "WordEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Word` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,20 +15,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "place",
-            "columnName": "Place",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "consumables",
-            "columnName": "Consumables",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "images",
-            "columnName": "Images",
+            "fieldPath": "word",
+            "columnName": "Word",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -37,7 +25,7 @@
           "columnNames": [
             "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -45,7 +33,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6103787ccbcbf11759b8e36418c5d3ee\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"66c7a7d3400f46b0982ea022d753a053\")"
     ]
   }
 }

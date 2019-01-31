@@ -2,8 +2,8 @@ package com.skeleton.android.core.di.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.skeleton.android.features.events.AddEventViewModel
-import com.skeleton.android.features.events.GetEventsViewModel
+import com.skeleton.android.features.word.AddWordViewModel
+import com.skeleton.android.features.word.GetWordViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -16,11 +16,11 @@ abstract class ViewModelModule {
     // =============================================================================================
     @Binds
     @IntoMap
-    @ViewModelKey(GetEventsViewModel::class)
-    abstract fun bindsEventsViewModel(getEventsViewModel: GetEventsViewModel): ViewModel
+    @ViewModelKey(GetWordViewModel::class)
+    abstract fun bindsWordViewModel(getWordViewModel: GetWordViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(AddEventViewModel::class)
-    abstract fun bindsAddEventViewModel(addEventViewModel: AddEventViewModel): ViewModel
+    @ViewModelKey(AddWordViewModel::class)
+    abstract fun bindsAddWordViewModel(addWordViewModel: AddWordViewModel): ViewModel
 }

@@ -30,14 +30,9 @@
         </activity>
 
         <activity
-            android:name="com.skeleton.android.features.users.UserLoginActivity"
-            android:label="@string/login_screen_title"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
-
-        <activity
             android:name="com.skeleton.android.core.navigation.MainActivity"
-            android:label="Events"
-            android:screenOrientation="portrait" />
+            android:label="Word"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
     </application>
 </manifest>

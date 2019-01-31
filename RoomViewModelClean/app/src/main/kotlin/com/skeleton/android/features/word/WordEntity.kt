@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey
 
 @Entity
 data class WordEntity (
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
 
     @ColumnInfo(name = "Word")

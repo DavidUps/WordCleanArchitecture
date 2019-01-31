@@ -3,7 +3,7 @@ package com.skeleton.android.core.di
 import android.content.Context
 import com.skeleton.android.AndroidApplication
 import com.skeleton.android.BuildConfig
-import com.skeleton.android.features.events.EventsRepository
+import com.skeleton.android.features.word.WordRepository
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+import javax.sql.CommonDataSource
 
 @Module
 class ApplicationModule(private val application: AndroidApplication) {
@@ -40,6 +41,6 @@ class ApplicationModule(private val application: AndroidApplication) {
 
     @Provides
     @Singleton
-    fun provideEventsRepository(dataSource: EventsRepository.Network): EventsRepository = dataSource
+    fun provideWordRepository(dataSource: WordRepository.Network): WordRepository = dataSource
 
 }

@@ -10,7 +10,6 @@ import com.skeleton.android.core.extension.*
 import com.skeleton.android.core.functional.DialogCallback
 import com.skeleton.android.core.navigation.Navigator
 import com.skeleton.android.core.platform.BaseFragment
-import kotlinx.android.synthetic.main.fragment_events.*
 import kotlinx.android.synthetic.main.fragment_word.*
 import javax.inject.Inject
 
@@ -45,13 +44,12 @@ class WordFragment : BaseFragment() {
         appComponent.inject(this)
 
         getGetWordViewModel = viewModel(viewModelFactory){
-            observe(words, ::renderWordsList)
+            observe(words,   ::renderWordsList)
             failure(failure, ::handleFailure)
         }
 
         addWordViewModel = viewModel(viewModelFactory){
-            // Cuando cree el ViewModel del AddWord estará.
-            // observe(trigger, ::onWordCreated)
+            observe(trigger, ::onWordCreated)
             failure(failure, ::handleFailure)
         }
 
@@ -73,13 +71,12 @@ class WordFragment : BaseFragment() {
     }
 
     private fun initializeView(){
-        rvWords.layoutManager = LinearLayoutManager(activity)
         rvWords.adapter = wordAdapter
+        rvWords.layoutManager = LinearLayoutManager(activity)
         //Adapter
     }
 
     private fun loadWords(){
-        emptyView.invisible()
         rvWords.visible()
         showProgress()
         getGetWordViewModel.words()
@@ -98,7 +95,6 @@ class WordFragment : BaseFragment() {
 
     private fun renderFailure(errorCode: Int, errorMessage: String?){
         rvWords.invisible()
-        emptyView.visible()
         hideProgress()
         showError(errorCode, errorMessage, object : DialogCallback{
             override fun onAccept() {
@@ -114,6 +110,17 @@ class WordFragment : BaseFragment() {
 
     private fun addWord(){
         showProgress()
-        addWordViewModel.add(Word(1,"hola"))
+        var word = ""
+        if (wordAdapter.itemCount % 2 == 0){
+            word = "The word"
+        } else{
+            word = "Is a vampire"
+        }
+        addWordViewModel.add(Word(wordAdapter.itemCount + 1,word))
+    }
+
+    private fun onWordCreated(any: Any?){
+        hideProgress()
+        loadWords()
     }
 }
