@@ -109,14 +109,15 @@ class WordFragment : BaseFragment() {
     }
 
     private fun addWord(){
-        showProgress()
+        /*showProgress()
         var word = ""
         if (wordAdapter.itemCount % 2 == 0){
             word = "The word"
         } else{
             word = "Is a vampire"
         }
-        addWordViewModel.add(Word(wordAdapter.itemCount + 1,word))
+        addWordViewModel.add(Word(wordAdapter.itemCount + 1,word))*/
+        navigator.showAddWordFragment(activity!!)
     }
 
     private fun onWordCreated(any: Any?){
