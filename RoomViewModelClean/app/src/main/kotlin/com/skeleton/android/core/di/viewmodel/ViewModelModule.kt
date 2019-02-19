@@ -2,6 +2,7 @@ package com.skeleton.android.core.di.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.skeleton.android.features.people.GetPeopleViewModel
 import com.skeleton.android.features.word.AddWordViewModel
 import com.skeleton.android.features.word.GetWordViewModel
 import dagger.Binds
@@ -23,4 +24,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AddWordViewModel::class)
     abstract fun bindsAddWordViewModel(addWordViewModel: AddWordViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GetPeopleViewModel::class)
+    abstract fun bindsGetPeopleViewModel(getPeopleViewModel: GetPeopleViewModel): ViewModel
 }

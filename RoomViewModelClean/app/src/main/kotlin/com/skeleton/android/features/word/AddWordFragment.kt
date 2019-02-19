@@ -2,12 +2,15 @@ package com.skeleton.android.features.word
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.skeleton.android.R
 import com.skeleton.android.core.exception.Failure
 import com.skeleton.android.core.extension.*
 import com.skeleton.android.core.functional.DialogCallback
 import com.skeleton.android.core.navigation.Navigator
 import com.skeleton.android.core.platform.BaseFragment
+import com.skeleton.android.features.people.GetPeopleViewModel
+import com.skeleton.android.features.people.PeopleView
 import kotlinx.android.synthetic.main.fragment_add_word.*
 import kotlinx.android.synthetic.main.fragment_events.*
 import java.util.*
@@ -19,6 +22,7 @@ class AddWordFragment : BaseFragment() {
     lateinit var navigator: Navigator
 
     private lateinit var addWordViewModel: AddWordViewModel
+    private lateinit var getPeopleViewModel: GetPeopleViewModel
 
     private var word: WordView? = null
 
@@ -32,6 +36,17 @@ class AddWordFragment : BaseFragment() {
             observe(trigger, ::onWordCreated)
             failure(failure, ::handleFailure)
         }
+
+        getPeopleViewModel = viewModel(viewModelFactory){
+            observe(people, ::onGetPeople)
+            failure(failure, ::handleFailure)
+        }
+
+    }
+
+    private fun onGetPeople(peopleView: PeopleView?) {
+        hideProgress()
+        etWord.setText(peopleView!!.name)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +55,13 @@ class AddWordFragment : BaseFragment() {
     }
 
     private fun initComponents() {
+        btnAleatoryName onClick  this::getPeople
         btnSave onClick this::addWord
+    }
+
+    private fun getPeople(){
+        showProgress()
+        getPeopleViewModel.getPeople((0..88).random())
     }
 
     private fun addWord(){

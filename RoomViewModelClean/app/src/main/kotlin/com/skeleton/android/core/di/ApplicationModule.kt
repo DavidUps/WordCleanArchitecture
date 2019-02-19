@@ -3,6 +3,7 @@ package com.skeleton.android.core.di
 import android.content.Context
 import com.skeleton.android.AndroidApplication
 import com.skeleton.android.BuildConfig
+import com.skeleton.android.features.people.PeopleRepository
 import com.skeleton.android.features.word.WordRepository
 import dagger.Module
 import dagger.Provides
@@ -24,7 +25,7 @@ class ApplicationModule(private val application: AndroidApplication) {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("http://api.skeleton.com/api/")
+                .baseUrl("https://swapi.co/api/")
                 .client(createClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -43,4 +44,7 @@ class ApplicationModule(private val application: AndroidApplication) {
     @Singleton
     fun provideWordRepository(dataSource: WordRepository.Network): WordRepository = dataSource
 
+    @Provides
+    @Singleton
+    fun providePeopleRepository(dataSource: PeopleRepository.Network): PeopleRepository = dataSource
 }

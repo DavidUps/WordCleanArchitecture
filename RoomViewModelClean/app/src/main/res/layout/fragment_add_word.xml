@@ -36,12 +36,26 @@
             android:hint="@string/word"/>
 
     </android.support.design.widget.TextInputLayout>
+    
+    <Button
+        android:id="@+id/btnAleatoryName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Aleatory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSave"
+        android:background="#f2f2f2"
+        android:textColor="#00bfff"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnAleatoryName"
         android:background="#00bfff"
         android:textColor="#FFFFFF"
         android:text="@string/save"

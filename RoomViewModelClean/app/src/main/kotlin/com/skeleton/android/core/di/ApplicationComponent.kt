@@ -15,6 +15,4 @@ interface ApplicationComponent {
     fun inject(splashActivity: SplashActivity)
     fun inject(wordFragment: WordFragment)
     fun inject(addWordFragment: AddWordFragment)
-
-
 }
